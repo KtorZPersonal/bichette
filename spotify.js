@@ -20,7 +20,7 @@ const nameToColor = {
 
 const hostOAuth = "accounts.spotify.com";
 const hostSpotify = "api.spotify.com";
-const redirectURL = window.location.origin;
+const redirectURL = `${window.location.origin}${window.location.pathname}`;
 
 function buildURL(host, path) {
   return `https://${host}/${path.join('/')}`;
@@ -84,7 +84,6 @@ async function getTracks($fetch, userId, playlistId) {
 }
 
 function createColumn(name, count, color) {
-  console.log("CREATE COLUMN", name, count, color);
   const div = document.createElement('div');
   div.className = color;
   const divName = document.createElement('div');
